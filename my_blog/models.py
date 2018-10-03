@@ -7,3 +7,16 @@ class Topic(models.Model):
     def __str__(self):
         """모델에 관한 정보를 문자열 형태로 반환한다."""
         return self.text
+
+class Content(models.Model):
+    """Topic의 내용이 들어간다"""
+    topic = models.ForeignKey(Topic, on_delete = models.CASCADE)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = 'contents'
+
+    def __str__(self):
+        """모델에 관한 정보를 문자열 형태로 반환한다."""
+        return self.text[:50] + "..."
