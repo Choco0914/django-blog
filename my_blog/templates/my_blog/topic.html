@@ -1,0 +1,19 @@
+{% extends "my_blog/base.html" %}
+
+{% block content %}
+
+  <p lang="ko">주제: {{ topic }}</p>
+  <ul>
+    {% for content in contents %}
+      <li>
+        <p>{{ content.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ content.text|linebreaks }}</p>
+      </li>
+    {% empty %}
+    <li>
+      아무것도 없다잉~
+    </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

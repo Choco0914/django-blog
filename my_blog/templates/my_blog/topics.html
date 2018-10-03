@@ -1,0 +1,17 @@
+{% extends "my_blog/base.html" %}
+
+{% block content %}
+
+  <p>주제</p>
+
+  <ul>
+    {% for topic in topics %}
+    <li>
+      <a href="{% url 'my_blog:topic' topic.id %}">{{ topic }}</a>
+    </li>
+    {% empty %}
+      <li>아무것도 없지롱!</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
