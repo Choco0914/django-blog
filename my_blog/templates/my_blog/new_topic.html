@@ -1,0 +1,12 @@
+{% extends "my_blog/base.html" %}
+
+{% block content %}
+  <p>새 주제를 시작해보자:</p>
+
+  <form action="{% url 'my_blog:new_topic' %}" method= "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">주제를 추가</button>
+  </form>
+
+{% endblock %}

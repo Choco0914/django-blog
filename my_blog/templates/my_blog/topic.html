@@ -3,11 +3,18 @@
 {% block content %}
 
   <p lang="ko">주제: {{ topic }}</p>
+  <p>
+    <a href="{% url 'my_blog:new_content' topic.id %}">새로운 내용 추가</a>
+  </p>
+  <p>내용:</p>
   <ul>
     {% for content in contents %}
       <li>
         <p>{{ content.date_added|date:'M d, Y H:i' }}</p>
         <p>{{ content.text|linebreaks }}</p>
+        <p>
+          <a href="{% url 'my_blog:edit_content' content.id %}">내용 수정하기</a>
+        </p>
       </li>
     {% empty %}
     <li>

@@ -1,0 +1,12 @@
+{% extends "my_blog/base.html" %}
+
+{% block content %}
+
+  <form method='post' action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">유저 등록하기</button>
+    <input type="hidden" name="text" value="{% url 'my_blog:index' %}">
+  </form>
+{% endblock %}

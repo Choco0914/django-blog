@@ -1,6 +1,13 @@
 <p>
   <a href="{% url 'my_blog:index' %}">My Blog</a> -
-  <a href="{% url 'my_blog:topics' %}">여기에 주제가?!</a>
+  <a href="{% url 'my_blog:topics' %}">여기에 주제가?!</a> -
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+    <a href="{% url 'users:logout' %}">Log Out</a>
+  {% else %}
+    <a href="{% url 'users:register' %}">유저 등록</a>
+    <a href="{% url 'users:login' %}">Log in</a>
+  {% endif %}
 </p>
 
 {% block content %}{% endblock %}

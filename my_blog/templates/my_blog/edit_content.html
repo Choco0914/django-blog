@@ -1,0 +1,14 @@
+{% extends "my_blog/base.html" %}
+
+{% block content %}
+
+  <p><a href="{% url 'my_blog:topic' topic.id}">{{ topic }}</a></p>
+
+  <p>내용 수정하기^^:</p>
+
+  <form action="{% url 'my_blog:edit_content' content.id %}" method = 'post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">저장하기</button>
+  </form>
+{% endblock %}
