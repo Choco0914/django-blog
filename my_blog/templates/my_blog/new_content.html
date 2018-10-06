@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <p><a href="{% url 'my_blog:topic' topic.id}">{{ topic }}</a></p>
+  <p><a href="{% url 'my_blog:topic' topic.id %}">{{ topic }}</a></p>
 
   <p>내용을 추가하자:</p>
   <form action="{% url 'my_blog:new_content' topic.id %}" method= "post">
