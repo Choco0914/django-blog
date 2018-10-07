@@ -1,5 +1,17 @@
 {% extends "my_blog/base.html" %}
 
+{% block header %}
+  <div class="jumbotron">
+    <h1>너의 모든걸 포스트하자!</h1>
+  </div>
+{% endblock %}
+
 {% block content %}
-<p leng='ko'>이것은 내 블로그</p>
+  <h2>
+    <a href="{% url 'users:register' %}">계정을 만드세요!</a>
+    my blog 사이트를 이용하려면 계정이 필요합니다.
+  </h2>
+  <h2>
+    이곳에서 당신이 원하는 주제의 글을 쓰고 내용을 넣고 수정하고 모든걸 할수 있습니다.
+  </h2>
 {% endblock %}

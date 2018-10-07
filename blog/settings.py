@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     'my_blog',
     #USER APP
     'users',
+
+    # Apps created by others
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -114,3 +117,8 @@ STATIC_URL = '/static/'
 
 # 내 설정
 LOGIN_URL = '/users/login/'
+
+# django-bootstrap3 settings
+BOOTSTRAP3 = {
+    'include_jquery' : True,
+}

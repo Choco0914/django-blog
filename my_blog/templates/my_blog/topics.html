@@ -1,18 +1,22 @@
 {% extends "my_blog/base.html" %}
+{% load bootstrap3 %}
 
+{% block header %}
+  <h1>주제</h1>
+{% endblock %}
 {% block content %}
-
-  <p>주제</p>
 
   <ul>
     {% for topic in topics %}
     <li>
-      <a href="{% url 'my_blog:topic' topic.id %}">{{ topic }}</a>
+      <h3>
+        <a href="{% url 'my_blog:topic' topic.id %}">{{ topic }}</a>
+      </h3>
     </li>
     {% empty %}
       <li>아무것도 없지롱!</li>
     {% endfor %}
   </ul>
-  <a href="{% url 'my_blog:new_topic' %}">주제를 추가:</a>
+  <h3><a href="{% url 'my_blog:new_topic' %}">주제를 추가:</a></h3>
 
 {% endblock %}

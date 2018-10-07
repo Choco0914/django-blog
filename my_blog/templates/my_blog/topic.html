@@ -1,25 +1,32 @@
 {% extends "my_blog/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>{{ topic }}</h2>
+{% endblock %}
 
 {% block content %}
 
-  <p lang="ko">주제: {{ topic }}</p>
   <p>
     <a href="{% url 'my_blog:new_content' topic.id %}">새로운 내용 추가</a>
-  </p>
-  <p>내용:</p>
-  <ul>
     {% for content in contents %}
-      <li>
-        <p>{{ content.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ content.text|linebreaks }}</p>
-        <p>
-          <a href="{% url 'my_blog:edit_content' content.id %}">내용 수정하기</a>
-        </p>
-      </li>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3>
+          {{ content.date_added|date:'M d, Y H:i' }}
+          <small>
+            <a href="{% url 'my_blog:edit_content' content.id %}">
+              내용 수정
+            </a>
+          </small>
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{ content.text|linebreaks }}
+      </div>
+    </div><!-- panel -->
     {% empty %}
-    <li>
       아무것도 없다잉~
-    </li>
     {% endfor %}
   </ul>
 
