@@ -1,0 +1,3 @@
+choco/
+__pycache__/
+*.sqlite3
