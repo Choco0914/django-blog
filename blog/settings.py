@@ -126,9 +126,9 @@ BOOTSTRAP3 = {
 # heroku settings
 
 cwd = os.getcwd()
-if cwd == '/app' or cwd[:4] == '/twp':
+if cwd == '/app' or cwd[:4] == '/tmp':
     import dj_database_url
-    DATABASE = {
+    DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')
     }
 
@@ -142,5 +142,5 @@ if cwd == '/app' or cwd[:4] == '/twp':
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
     STATICFILES_DIRS = (
-        os.path.join(BASE_DRI, 'static'),
+        os.path.join(BASE_DIR, 'static'),
     )
