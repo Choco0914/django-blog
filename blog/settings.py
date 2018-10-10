@@ -130,6 +130,7 @@ BOOTSTRAP3 = {
 # heroku settings
 
 cwd = os.getcwd()
+print("--- CWD ---\n", cwd, "\n---\n")
 if cwd == '/app' or cwd[:4] == '/tmp':
     import dj_database_url
     DATABASES = {
