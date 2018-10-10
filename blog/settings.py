@@ -129,20 +129,28 @@ BOOTSTRAP3 = {
     'include_jquery' : True,
 }
 
-# Heroku: Update database configuration from $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# heroku settings
 
-# Static files (CSS, JavaScript, Images)
+cwd = os.getcwd()
+print("--- CWD ---\n", cwd, "\n---\n")
+if cwd == '/app' or cwd[:4] == '/tmp':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    # request.is_secure()에 대해 'X-Forwarded-Proto'를 우선적으로 사용한다.
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-STATIC_URL = '/static/'
+    # 모든 호스트 헤더를 허용한다.
+    ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+    DEBUG = False
+    # 정적 자료에 필요한 설정
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
