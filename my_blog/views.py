@@ -20,7 +20,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """주제 하나와 연결된 모든 내용을 표시한다"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
     # 주제가 현재 사용자의 것인지 확인한다.
     check = check_topic_owner(request, topic)
 
