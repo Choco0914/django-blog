@@ -136,7 +136,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # 모든 호스트 헤더를 허용한다.
-    ALLOWED_HOSTS = ['choco-blog.herokuapp.com]
+    ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
 
     DEBUG = False
     # 정적 자료에 필요한 설정
