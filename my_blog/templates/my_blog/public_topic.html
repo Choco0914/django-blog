@@ -1,0 +1,37 @@
+{% extends "my_blog/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h1>{{ topic }}</h1>
+  <h3>author - {{ topic.owner }}</h3>
+{% endblock %}
+
+{% block content %}
+{% for content in contents %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>
+      {{ content.date_added|date:'M d, Y H:i' }}
+      <small>
+        <form action="{% url 'my_blog:read_content' content.id}"
+          method="post", class="form">
+          {% csrf_token %}
+
+          {% buttons %}
+            <button name="submit" class="btn btn-success">
+              자세히 읽기
+            </button>
+          {% endbuttons %}
+        </form>
+      </small>
+    </h3>
+  </div>
+  <div class="panel-body">
+    {{ entry.text|truncatechars:150|linebreaks }}
+  </div>
+</div><!-- panel -->
+{% empty %}
+  아직 아무것도 존재하지 않습니다.
+{% endfor %}
+
+{% endblock %}

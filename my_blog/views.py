@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
+
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.db.models import Q
 
 from .models import Topic ,Content
 from .forms import TopicForm, ContentForm
@@ -10,23 +13,39 @@ def index(request):
     """블로그 홈페이지"""
     return render(request, 'my_blog/index.html')
 
-@login_required
+def _get_topics_For_user(user):
+    """유저가 접근할수 있는 쿼리셋을 돌려준다"""
+    q = Q(public=True)
+    # If django < 1.10 you want "user.is_authenticated()" (with parens)
+    if user.is_authenticated:
+        # Adds user's own private topics to the query
+        q = q | Q(public=False, owner=user)
+
+    return Topic.objects.filter(q)
+
 def topics(request):
     """주제를 나타내는 page"""
-    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
-    context = {'topics': topics}
+    topics = _get_topics_For_user(request.user).order_by('date_added')
+    form = TopicForm()
+    context = {'topics': topics, 'form':form}
     return render(request, 'my_blog/topics.html', context)
 
-@login_required
 def topic(request, topic_id):
     """주제 하나와 연결된 모든 내용을 표시한다"""
-    topic = get_object_or_404(Topic, id=topic_id)
-    # 주제가 현재 사용자의 것인지 확인한다.
-    check = check_topic_owner(request, topic)
-
-    contents = topic.content_set.order_by('-date_added')
-    context = {'topic':topic, 'contents': contents}
-    return render(request, 'my_blog/topic.html', context)
+    topics = _get_topics_For_user(request.user)
+    topic = get_object_or_404(topics, id=topic_id)
+    form = TopicForm()
+    # Here we're passing the filtered queryset, so
+    # if the topic "topic_id" is private and the user is either
+    # anonyous or not the topic owner, it will raise a 404
+    if topic.owner == request.user:
+        contents = topic.content_set.order_by('-date_added')
+        context = {'topic':topic, 'contents':contents, 'form': form}
+        return render(request, 'my_blog/topic.html', context)
+    else:
+        contents = topic.content_set.order_by('-date_added')
+        context = {'topic': topic, 'contents': contents, 'form': form}
+    return render(request, 'my_blog/public_topic.html', context)
 
 @login_required
 def new_topic(request):

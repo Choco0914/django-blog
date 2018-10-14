@@ -9,4 +9,5 @@ urlpatterns = [
 
     # users app url
     re_path(r'^users/', include(('users.urls', 'users'), namespace=None)),
+
 ]

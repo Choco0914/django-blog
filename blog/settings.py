@@ -33,6 +33,9 @@ INSTALLED_APPS = [
 
     # Apps created by others
     'bootstrap3',
+
+    # Restful api Framework
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +142,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
 
     DEBUG = False
-    
+
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
