@@ -7,13 +7,14 @@
 {% endblock %}
 
 {% block content %}
+
 {% for content in contents %}
-<div class="panel panel-default">
+<div class="panel panel-info">
   <div class="panel-heading">
     <h3>
       {{ content.date_added|date:'M d, Y H:i' }}
       <small>
-        <form action="{% url 'my_blog:read_content' content.id}"
+        <form action="{% url 'my_blog:read_content' content.id %}"
           method="post", class="form">
           {% csrf_token %}
 
@@ -27,7 +28,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    {{ entry.text|truncatechars:150|linebreaks }}
+    {{ content.text|truncatechars:150|linebreaks }}
   </div>
 </div><!-- panel -->
 {% empty %}

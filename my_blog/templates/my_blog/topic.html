@@ -2,7 +2,23 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2>{{ topic }}</h2>
+  <h1>{{ topic }}
+    <small>
+      <form action="{% url 'my_blog:delete_topic' topic.id %}"
+      method='post', class="form">
+
+        {% csrf_token %}
+        <div class="text-right">
+          {% buttons %}
+            <button onclick="return confirm('정말 삭제하겠습니까?');"
+              name="submit" class="btn btn-danger">주제 삭제하기</button>
+          {% endbuttons %}
+        </div>
+
+      </form>
+    </small>
+  </h1>
+  <h3>author:{{ topic.owner }}</h3>
 {% endblock %}
 
 {% block content %}
@@ -18,15 +34,25 @@
             <a href="{% url 'my_blog:edit_content' content.id %}">
               내용 수정
             </a>
+            <form action="{% url 'my_blog:read_content' content.id %}"
+              method="post" class="form">
+              {% csrf_token %}
+
+              {% buttons %}
+                <button name="submit" class="btn btn-success">
+                  자세히 읽기
+                </button>
+              {% endbuttons %}
+            </form>
           </small>
         </h3>
       </div>
       <div class="panel-body">
-        {{ content.text|linebreaks }}
+        {{ content.text|truncatechars:150|linebreaks }}
       </div>
     </div><!-- panel -->
     {% empty %}
-      아무것도 없다잉~
+      아직 아무것도 존재하지 않습니다.
     {% endfor %}
 
 {% endblock %}

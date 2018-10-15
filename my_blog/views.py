@@ -9,6 +9,11 @@ from django.db.models import Q
 from .models import Topic ,Content
 from .forms import TopicForm, ContentForm
 
+def check_topic_owner(request, topic):
+    """주제에 연결된 사용자가 현재 로그인된 사용자와 일치하는지 확인한다"""
+    if topic.owner != request.user:
+        raise Http404
+
 def index(request):
     """블로그 홈페이지"""
     return render(request, 'my_blog/index.html')
@@ -65,6 +70,29 @@ def new_topic(request):
     return render(request, 'my_blog/new_topic.html', context)
 
 @login_required
+def delete_topic(request, topic_id):
+    """주제를 삭제해준다."""
+    topic = get_object_or_404(Topic, id=topic_id)
+    check_user = check_topic_owner(request, topic)
+
+    topic.delete()
+    return HttpResponseRedirect(reverse('my_blog:topics'))
+
+def read_content(request, content_id):
+    """내용을 자세히 보여준다."""
+    content = Content.objects.get(id=content_id)
+    topic = content.topic
+    topic_id = topic.id
+    topics = _get_topics_For_user(request.user)
+    topic_get = get_object_or_404(topics, id=topic_id)
+    for selected_content in topic_get.content_set.all():
+        if content == selected_content:
+            content = selected_content
+
+    context = {'content':selected_content, 'topic':topic}
+    return render(request, 'my_blog/read_content.html', context)
+
+@login_required
 def new_content(request, topic_id):
     """새로운 내용을 추가한다"""
     topic = Topic.objects.get(id=topic_id)
@@ -105,8 +133,3 @@ def edit_content(request, content_id):
 
     context= {'content':content, 'topic':topic, 'form': form}
     return render(request, 'my_blog/edit_content.html', context)
-
-def check_topic_owner(request, topic):
-    """주제에 연결된 사용자가 현재 로그인된 사용자와 일치하는지 확인한다"""
-    if topic.owner != request.user:
-        raise Http404
