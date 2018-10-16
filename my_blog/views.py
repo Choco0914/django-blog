@@ -133,3 +133,13 @@ def edit_content(request, content_id):
 
     context= {'content':content, 'topic':topic, 'form': form}
     return render(request, 'my_blog/edit_content.html', context)
+
+@login_required
+def delete_content(request, content_id):
+    """내용를 삭제해준다."""
+    content = get_object_or_404(Content, id=content_id)
+    topic = content.topic
+    check_user = check_topic_owner(request, topic)
+
+    content.delete()
+    return HttpResponseRedirect(reverse('my_blog:topic', args=[topic.id]))

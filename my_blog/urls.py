@@ -15,7 +15,7 @@ urlpatterns =[
     views.topic, name='topic' ),
     # 새 주제를 추가하는 페이지
     re_path(r'^new_topic/$', views.new_topic, name='new_topic'),
-    # 주제를 삭제하는 페이지
+    # 주제를 삭제하는 Url
     re_path(r'^topics/(?:page-(?P<topic_id>\d+)/delete_topic/)?$',
     views.delete_topic, name='delete_topic'),
 
@@ -29,4 +29,7 @@ urlpatterns =[
     # 내용 수정 페이지
     re_path(r'^edit_content/(?:page-(?P<content_id>\d+)/)?$',
     views.edit_content, name='edit_content'),
+    # 내용 삭제 Url
+    re_path(r'^contents/(?:page-(?P<content_id>\d+)/delete_content/)?$',
+    views.delete_content, name='delete_content')
 ]
