@@ -24,4 +24,25 @@ class Content(models.Model):
 
     def __str__(self):
         """모델에 관한 정보를 문자열 형태로 반환한다."""
-        return self.text[:50] + "..."
+        if self.text[:] > self.text[:50]:
+            return self.text[:50] + "..."
+        else:
+            return self.text[:]
+
+class Comment(models.Model):
+    """댓글의 모델을 정의한다"""
+    content = models.ForeignKey(Content, related_name='comments',
+                            on_delete = models.CASCADE)
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    created_date = models.DateTimeField(auto_now_add=True)
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        """댓글을 승인한다"""
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        """모델에 관한 정보를 문자열 형태로 반환한다."""
+        return self.text

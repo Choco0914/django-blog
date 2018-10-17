@@ -19,4 +19,44 @@
     {{ content.text|linebreaks }}
     </div>
   </div>
+
+
+  <div class="detailBox">
+    <div class ="titleBox">
+      <label>Comment Box</label>
+        <button type="button" class="close" aria-hidden="true">&times;</button>
+    </div>
+    <div class="commentBox">
+
+      <p class="taskDescription">여기에 댓글을 남겨보세요</p>
+    </div>
+    <div class="actionBox">
+      <ul class="commentList">
+        <li>
+          {% for comment in content.comments.all %}
+          <strong>{{ comment.author }}</strong>
+          <div class="commenterImage">
+            <img src="http://placekitten.com/50/50" />
+          </div>
+          <div class="commentText">
+            <p class="">{{ comment.text|linebreaks }}</p>
+              <span class="date sub-text">{{ comment.created_date}}</span>
+          </div>
+          <div class="text-right">
+            <a href="{% url 'my_blog:delete_comment' comment.id %}"
+             button onclick="return confirm('정말 삭제하겠습니까?');"
+              name="submit" class="btn btn-danger btn-xs">댓글 삭제하기
+            </a>
+          </div>
+          {% empty %}
+            <p>아직 댓글이 없습니다 :( 댓글을 남겨보세요! </p>
+        </li>
+      </ul>
+          {% endfor %}
+    </div>
+    <a href="{% url 'my_blog:new_comment' content.id %}"
+      name="submit" class="btn btn-success btn-xs" role="buton">
+      댓글 추가
+    </a>
+  </div>
 {% endblock %}

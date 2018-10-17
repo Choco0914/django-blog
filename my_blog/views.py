@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db.models import Q
 
-from .models import Topic ,Content
-from .forms import TopicForm, ContentForm
+from .models import Topic, Content, Comment
+from .forms import TopicForm, ContentForm, CommentForm
 
 def check_topic_owner(request, topic):
     """주제에 연결된 사용자가 현재 로그인된 사용자와 일치하는지 확인한다"""
@@ -28,6 +28,7 @@ def _get_topics_For_user(user):
 
     return Topic.objects.filter(q)
 
+# 주제
 def topics(request):
     """주제를 나타내는 page"""
     topics = _get_topics_For_user(request.user).order_by('date_added')
@@ -78,10 +79,12 @@ def delete_topic(request, topic_id):
     topic.delete()
     return HttpResponseRedirect(reverse('my_blog:topics'))
 
+# 내용
 def read_content(request, content_id):
     """내용을 자세히 보여준다."""
-    content = Content.objects.get(id=content_id)
+    content = get_object_or_404(Content, id=content_id)
     topic = content.topic
+    form = CommentForm()
     topic_id = topic.id
     topics = _get_topics_For_user(request.user)
     topic_get = get_object_or_404(topics, id=topic_id)
@@ -89,7 +92,7 @@ def read_content(request, content_id):
         if content == selected_content:
             content = selected_content
 
-    context = {'content':selected_content, 'topic':topic}
+    context = {'content':content, 'topic':topic,}
     return render(request, 'my_blog/read_content.html', context)
 
 @login_required
@@ -143,3 +146,38 @@ def delete_content(request, content_id):
 
     content.delete()
     return HttpResponseRedirect(reverse('my_blog:topic', args=[topic.id]))
+
+# 댓글
+@login_required
+def new_comment(request, content_id):
+    """새로운 댓글을 달게 한다."""
+    content = get_object_or_404(Content, id=content_id)
+    topic = content.topic
+
+    if request.method != "POST":
+        form = CommentForm()
+    else:
+        form = CommentForm(data=request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.content = content
+            new_comment.author = request.user
+            new_comment.save()
+            return HttpResponseRedirect(reverse('my_blog:read_content',
+                                        args=[content_id]))
+
+    context = {'content':content, 'topic':topic, 'form':form, }
+    return render(request, 'my_blog/add_comment.html',
+            context)
+
+def delete_comment(request, comment_id):
+    """댓글을 삭제한다."""
+    comment = get_object_or_404(Comment, id=comment_id)
+    content = comment.content
+    # 댓글의 유저를 확인한다.
+    if comment.author != request.user:
+        raise Http404
+
+    comment.delete()
+    return HttpResponseRedirect(reverse('my_blog:read_content',
+                                    args=[content.id]))

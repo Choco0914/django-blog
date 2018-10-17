@@ -31,5 +31,14 @@ urlpatterns =[
     views.edit_content, name='edit_content'),
     # 내용 삭제 Url
     re_path(r'^contents/(?:page-(?P<content_id>\d+)/delete_content/)?$',
-    views.delete_content, name='delete_content')
+    views.delete_content, name='delete_content'),
+
+    # Comment page
+    # 새로운 댓글을 추가하는 페이지
+    re_path(r'^comment/(?:page-(?P<content_id>\d+)/new_comment/)?$',
+    views.new_comment, name='new_comment'),
+
+    # 댓글을 삭제하는 Url
+    re_path(r'^comment/(?:page-(?P<comment_id>\d+)/delete_comment/)?$', 
+    views.delete_comment, name='delete_comment'),
 ]
