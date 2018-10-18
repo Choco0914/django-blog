@@ -10,4 +10,7 @@ urlpatterns = [
     # users app url
     re_path(r'^users/', include(('users.urls', 'users'), namespace=None)),
 
+    # Social login url
+    re_path(r'^', include('social_django.urls', namespace='social')),
+
 ]

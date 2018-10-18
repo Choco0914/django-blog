@@ -17,5 +17,15 @@
 
     <input type="hidden" name="next" value="{% url 'my_blog:index' %}" />
   </form>
+<div class=sns>
+  <a href="{% url "social:begin" "google-oauth2" %}">
+    <button class="btn btn-danger" style="width: 10%">G+ Login</button></a>
+
+  <a href="{% url "social:begin" "github" %}">
+      <button class="btn btn-dark" style="width: 10%">Git Login</button></a>
+
+  <a href="{% url "social:begin" "kakao" %}">
+      <button class="btn btn-warning" style="width: 10%">Kakao</button></a>
+</div>
 
 {% endblock %}

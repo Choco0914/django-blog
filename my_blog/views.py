@@ -170,6 +170,7 @@ def new_comment(request, content_id):
     return render(request, 'my_blog/add_comment.html',
             context)
 
+@login_required
 def delete_comment(request, comment_id):
     """댓글을 삭제한다."""
     comment = get_object_or_404(Comment, id=comment_id)
