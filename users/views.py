@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import UserCreationForm
+from .forms import  UserCreationForm
 
 
 def logout_view(request):

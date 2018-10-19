@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # Social
     'social_django',
     "social_core",
+
 ]
 
 MIDDLEWARE = [
@@ -179,3 +180,13 @@ SOCIAL_AUTH_GITHUB_SECRET = 'c4d1efe407175230a47d7fa547db0667b4f08721'
 
 # Kakaotalk login
 SOCIAL_AUTH_KAKAO_KEY = '490c43bc63dd3351e6068f6bbf4e0bfd'
+
+# Verification Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = 'True'
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('KBOARD_PASSWORD')
+SERVER_EMAIL = 'heojeongho1992@gmail.com'
+DEFAULT_FROM_MAIL = 'my_blog'

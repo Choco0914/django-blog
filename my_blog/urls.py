@@ -37,8 +37,14 @@ urlpatterns =[
     # 새로운 댓글을 추가하는 페이지
     re_path(r'^comment/(?:page-(?P<content_id>\d+)/new_comment/)?$',
     views.new_comment, name='new_comment'),
-
     # 댓글을 삭제하는 Url
-    re_path(r'^comment/(?:page-(?P<comment_id>\d+)/delete_comment/)?$', 
+    re_path(r'^comment/(?:page-(?P<comment_id>\d+)/delete_comment/)?$',
     views.delete_comment, name='delete_comment'),
+
+    # User
+    # 유저의 프로필을 나타내는 페이지
+    re_path(r'^profile/(?:page-(?P<user_id>\d+)/)?$', views.profile,
+        name='profile'),
+    re_path(r'^profile/(?:page-(?P<user_id>\d+)/delete_user/)?$',
+        views.delete_user, name='delete_user')
 ]

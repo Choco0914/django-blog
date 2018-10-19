@@ -3,7 +3,13 @@
 
 {% block header %}
   <h1>주제</h1>
+  <small>
+    <h3><a href="{% url 'my_blog:new_topic' %}">
+      <button name="submit" class="btn btn-primary">
+        주제 추가하기</button></a></h3>
+  </small>
 {% endblock %}
+
 {% block content %}
 
   <ul>
@@ -17,6 +23,5 @@
       <li>아무것도 없지롱!</li>
     {% endfor %}
   </ul>
-  <h3><a href="{% url 'my_blog:new_topic' %}">주제를 추가:</a></h3>
 
 {% endblock %}

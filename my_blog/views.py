@@ -182,3 +182,26 @@ def delete_comment(request, comment_id):
     comment.delete()
     return HttpResponseRedirect(reverse('my_blog:read_content',
                                     args=[content.id]))
+
+# User_Profile
+
+@login_required
+def profile(request, user_id):
+    """유저의 정보를 보여준다"""
+    blog_user = get_object_or_404(User, id=user_id)
+    if blog_user != request.user:
+        raise Http404
+
+    context = {'blog_user':blog_user, }
+    return render(request, 'my_blog/profile.html', context)
+
+@login_required
+def delete_user(request, user_id):
+    """유저의 정보를 삭제한다."""
+    blog_user = get_object_or_404(User, id=user_id)
+
+    if blog_user != request.user:
+        raise Http404
+
+    blog_user.delete()
+    return HttpResponseRedirect(reverse('my_blog:index'))
