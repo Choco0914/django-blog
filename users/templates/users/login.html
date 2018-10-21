@@ -1,31 +1,49 @@
 {% extends "my_blog/base.html" %}
 {% load bootstrap3 %}
 
-{% block header %}
-  <h2>여기서 로그인하세요!</h2>
-{% endblock %}
+<div class='container'>
+  {% block header %}
+    <h2>여기서 로그인하세요!</h2>
+  {% endblock %}
 
-{% block content %}
+  {% block content %}
 
-  <form action="{% url 'users:login' %}" method='post' class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
+  <div class='omb_login'>
+    <div class="row omb_row-sm-offset-3 omb_socialButtons">
+      <div class="col-xs-4 col-sm-2">
+        <a href="{% url "social:begin" "google-oauth2" %}">
+        <button class="btn btn-block btn btn-danger" >G+ Login</button></a>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+        <a href="{% url "social:begin" "github" %}">
+        <button class="btn btn-block button5" >Git Login</button></a>
+      </div>
 
-    {% buttons %}
-    <button name="submit" class="btn btn-primary">Log in</button>
-    {% endbuttons %}
+      <div class="col-xs-4 col-sm-2">
+        <a href="{% url "social:begin" "kakao" %}">
+        <button class="btn btn-block btn btn-warning" >Kakao</button></a>
+      </div>
+      </div>
 
-    <input type="hidden" name="next" value="{% url 'my_blog:index' %}" />
-  </form>
-<div class=sns>
-  <a href="{% url "social:begin" "google-oauth2" %}">
-    <button class="btn btn-danger" style="width: 10%">G+ Login</button></a>
+        <div class="row omb_row-sm-offset-3 omb_loginOr">
+          <div class="col-xs-12 col-sm-6">
+            <hr class="omb_hrOr">
+            <span class="omb_spanOr">or</span>
+          </div>
+        </div>
+    </div>
+    
+    <form action="{% url 'users:login' %}" method='post' class="form">
+      {% csrf_token %}
 
-  <a href="{% url "social:begin" "github" %}">
-      <button class="btn btn-dark" style="width: 10%">Git Login</button></a>
+      {% bootstrap_form form %}
 
-  <a href="{% url "social:begin" "kakao" %}">
-      <button class="btn btn-warning" style="width: 10%">Kakao</button></a>
+      {% buttons %}
+      <button name="submit" class="btn btn-primary">Log in</button>
+      {% endbuttons %}
+      <input type="hidden" name="next" value="{% url 'my_blog:index' %}" />
+    </form>
+
+
+  {% endblock %}
 </div>
-
-{% endblock %}

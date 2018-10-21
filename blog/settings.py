@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'social_django',
     "social_core",
 
+    # customize form
+    'widget_tweaks',
+
 ]
 
 MIDDLEWARE = [

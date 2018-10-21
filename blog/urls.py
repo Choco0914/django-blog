@@ -13,4 +13,5 @@ urlpatterns = [
     # Social login url
     re_path(r'^', include('social_django.urls', namespace='social')),
 
+
 ]

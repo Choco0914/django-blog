@@ -15,31 +15,7 @@ class UserCreationForm(UserCreationForm):
     email = forms.EmailField(widget = forms.EmailInput(attrs=
         {'class':'form-control', 'placeholder': 'Email',}),
          max_length=64, help_text='유효한 이메일 주소를 입력하세요',
-         error_messages={'invalid': ("Email 이 비어있습니다")},)
-
-    terms = forms.BooleanField(
-        label =('My blog of service'),
-        widget=forms.CheckboxInput(
-            attrs={
-                'required': 'True',
-            }
-        ),
-        error_messages={
-            'required':('당신의 My blog of service 에 대한 동의가 필요합니다. ')
-        }
-    )
-
-    privacy = forms.BooleanField(
-        label=('Privacy policy'),
-        widget=forms.CheckboxInput(
-            attrs={
-                'required':'True',
-            }
-        ),
-        error_messages={
-            'required=':('당신의 Privacy policy 동의가 필요합니다.')
-            }
-    )
+         error_messages={'invalid': ("맞지 않은 주소 입니다.")}, label='email')
 
     class Meta(UserCreationForm.Meta):
         model = User

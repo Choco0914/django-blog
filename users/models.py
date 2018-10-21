@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Profile(models.Model):
-    "Profile 정의 하는 모델"
-    user = models.OneToOneField(User, related_name='profile',
-    on_delete= models.CASCADE)
+    user = models.OneToOneField(User, related_name='profile', on_delete = models.CASCADE) #1 to 1 link with Django User
     activation_key = models.CharField(max_length=40)
-    key_expries = models.DateTimeField()
+    key_expires = models.DateTimeField()

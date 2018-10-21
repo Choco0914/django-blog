@@ -18,4 +18,5 @@ urlpatterns = [
 
     # 유저 등록 페이지
     re_path(r'^register/$', views.register, name='register'),
+
 ]

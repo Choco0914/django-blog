@@ -1,6 +1,7 @@
 {% extends 'my_blog/base.html' %}
 {% load bootstrap3 %}
 
+
 {% block header %}
   <h2>
     <a href="{% url 'my_blog:topic' topic.id %}">
@@ -35,9 +36,6 @@
         <li>
           {% for comment in content.comments.all %}
           <strong>{{ comment.author }}</strong>
-          <div class="commenterImage">
-            <img src="http://placekitten.com/50/50" />
-          </div>
           <div class="commentText">
             <p class="">{{ comment.text|linebreaks }}</p>
               <span class="date sub-text">{{ comment.created_date}}</span>

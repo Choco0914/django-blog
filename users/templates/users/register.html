@@ -1,5 +1,6 @@
 {% extends "my_blog/base.html" %}
 {% load bootstrap3 %}
+{% load widget_tweaks %}
 
 {% block header %}
   <h2>회원가입</h2>
@@ -9,11 +10,62 @@
 
   <form method='post' action="{% url 'users:register' %}" class="form">
     {% csrf_token %}
-    {% bootstrap_form form %}
+    <div class="fieldWrapper">
+      {% if form.username.erros %}
+        <p>{{ form.email.errors|escape }}</p>
+      {% endif %}
+      <label for="{{ form.username_of_field }}">{{ form.username.label_tag }}</label>
+        {{ form.username|add_class:'form-control' }}
+        {{ form.username.help_text|safe }}
+    </div><br>
 
+    <div class="fieldWrapper">
+      {% if form.first_name.erros %}
+        <p>{{ form.first_name.errors|escape }}</p>
+      {% endif %}
+      <label for="{{ form.first_name_of_field }}">{{ form.first_name.label_tag }}</label>
+        {{ form.first_name|add_class:'form-control' }}
+        {{ form.first_name.help_text|safe }}
+    </div><br>
+
+    <div class="fieldWrapper">
+      {% if form.last_name.erros %}
+        <p>{{ form.last_name.errors|escape }}</p>
+      {% endif %}
+      <label for="{{ form.last_name_of_field }}">{{ form.last_name.label_tag }}</label>
+        {{ form.last_name|add_class:'form-control' }}
+        {{ form.last_name.help_text|safe }}
+    </div><br>
+
+    <div class="fieldWrapper">
+      {% if form.password1.erros %}
+        <p>{{ form.password1.errors|escape }}</p>
+      {% endif %}
+      <label for="{{ form.password1_of_field }}">{{ form.password1.label_tag }}</label>
+        {{ form.password1|add_class:'form-control' }}
+        {{ form.password1.help_text|safe }}
+    </div><br>
+
+    <div class="fieldWrapper">
+
+        <p>{{ form.password2.errors|escape }}</p>
+
+      <label for="{{ form.password2_of_field }}">{{ form.password2.label_tag }}</label>
+        {{ form.password2|add_class:'form-control' }}
+        {{ form.password2.help_text|safe }}
+    </div><br>
+
+      <div class="fieldWrapper">
+        {% if form.email.erros %}
+          <p>{{ form.email.errors|escape }}</p>
+        {% endif %}
+        <label for="{{ form.email_of_field }}">{{ form.email.label_tag }}</label>
+          {{ form.email }}
+          {{ form.email.help_text|safe }}
+      </div><br>
+      
     {% buttons %}
     <button name="submit" class="btn btn-success">유저 등록하기</button>
     {% endbuttons %}
-    <input type="hidden" name="text" value="{% url 'my_blog:index' %}">
   </form>
 {% endblock %}
