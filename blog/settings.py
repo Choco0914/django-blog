@@ -152,7 +152,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     # 모든 호스트 헤더를 허용한다.
     ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
 
-    DEBUG = False
+    DEBUG = True
 
     # Static asset configuration
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
