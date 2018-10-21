@@ -167,7 +167,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
         os.path.join(PROJECT_ROOT, 'static'),
     )
 
-    STATICFILES_STORAGE ='django.contrib.staticfiles.storage.StaticFilesStorage'
+    STATICFILES_STORAGE ='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     # Verification Email settings
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
