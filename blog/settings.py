@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y$a)3faq3*h#r0g5b^cxsw^lgdxbbu&#lsqek!_0ju+d*c!ups'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -155,11 +155,11 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     DEBUG = True
 
     # Static asset configuration
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.9/howto/static-files/
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
     STATIC_URL = '/static/'
 
     # Extra places for collectstatic to find static files.
@@ -167,7 +167,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
         os.path.join(BASE_DIR, 'static'),
     )
 
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATICFILES_STORAGE ='django.contrib.staticfiles.storage.StaticFilesStorage'
 
     # Verification Email settings
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
