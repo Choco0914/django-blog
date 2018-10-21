@@ -164,7 +164,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
     # Extra places for collectstatic to find static files.
     STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
+        os.path.join(PROJECT_ROOT, 'static'),
     )
 
     STATICFILES_STORAGE ='django.contrib.staticfiles.storage.StaticFilesStorage'
