@@ -155,10 +155,21 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    STATIC_ROOT = 'staticfiles'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = '/static/'
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
+
+    # Verification Email settings
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = 'True'
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get('KBOARD_PASSWORD')
+    SERVER_EMAIL = 'heojeongho1992@gmail.com'
+    DEFAULT_FROM_MAIL = 'my_blog'
 
 # AUTHENTICATION_BACKENDS settings
 AUTHENTICATION_BACKENDS = [

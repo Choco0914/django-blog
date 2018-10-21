@@ -29,11 +29,11 @@ def register(request):
             # 가입후 가입했다는 메일을 보내준다.
             # sand_mail(subject, message, from_email, to_list, fail_silently=True)
             subject = 'my_blog에 가입하신걸 환영합니다'
-            message = 'http://localhost:8000 에서 무엇이든 포스트해보세요!'
+            message = 'https://choco-blog.herokuapp.com/ 에서 무엇이든 포스트해보세요!'
             from_email = settings.EMAIL_HOST_USER
             to_list = [new_user.email]
             send_mail(subject, message, from_email, to_list, fail_silently=True )
-            
+
             # 사용자를 로그인시키고 홈페이지로 리다이렉트한다.
             authenticated_user = authenticate(username=new_user.username,
                 password=request.POST['password1'])
