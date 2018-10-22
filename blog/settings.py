@@ -136,45 +136,6 @@ BOOTSTRAP3 = {
     'include_jquery' : True,
 }
 
-#  Heroku settings
-
-cwd = os.getcwd()
-if cwd == '/app' or cwd[:4] == '/tmp':
-    import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhost')
-    }
-
-    # request.is_secure()에 대해 'X-Forwarded-Proto'를 우선적으로 사용한다.
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-    # 모든 호스트 헤더를 허용한다.
-    ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
-
-    DEBUG = False
-
-    # Static asset configuration
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-    # Static asset configuration
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
-
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-    # Verification Email settings
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_TLS = 'True'
-    EMAIL_PORT = 587
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
-    EMAIL_HOST_PASSWORD = os.environ.get('KBOARD_PASSWORD')
-    SERVER_EMAIL = 'heojeongho1992@gmail.com'
-    DEFAULT_FROM_MAIL = 'my_blog'
-
 # AUTHENTICATION_BACKENDS settings
 AUTHENTICATION_BACKENDS = [
     'social_core.backends.open_id.OpenIdAuth',  # for Google authentication

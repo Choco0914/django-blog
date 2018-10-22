@@ -1,6 +1,7 @@
 {% extends "my_blog/base.html" %}
 {% load bootstrap3 %}
 
+
 <div class='container'>
   {% block header %}
     <h2>여기서 로그인하세요!</h2>
@@ -32,7 +33,7 @@
           </div>
         </div>
     </div>
-    
+
     <form action="{% url 'users:login' %}" method='post' class="form">
       {% csrf_token %}
 
