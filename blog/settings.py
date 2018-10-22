@@ -54,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'blog.urls'
@@ -152,7 +151,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     # 모든 호스트 헤더를 허용한다.
     ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
 
-    DEBUG = True
+    DEBUG = False
 
     # Static asset configuration
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
