@@ -32,7 +32,7 @@ def register(request):
             message = 'https://choco-blog.herokuapp.com/ 에서 무엇이든 포스트해보세요!'
             from_email = settings.EMAIL_HOST_USER
             to_list = [new_user.email]
-            send_mail(subject, message, from_email, to_list, fail_silently=True )
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
 
             # 사용자를 로그인시키고 홈페이지로 리다이렉트한다.
             authenticated_user = authenticate(username=new_user.username,
