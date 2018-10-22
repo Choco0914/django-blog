@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
 
+
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
 
@@ -12,6 +13,5 @@ urlpatterns = [
 
     # Social login url
     re_path(r'^', include('social_django.urls', namespace='social')),
-
 
 ]
