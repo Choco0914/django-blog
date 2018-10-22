@@ -194,3 +194,11 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = 'True'
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
+    EMAIL_HOST_PASSWORD = '453901gjwjdgh'
+    SERVER_EMAIL = 'heojeongho1992@gmail.com'
+    DEFAULT_FROM_MAIL = 'my_blog'
