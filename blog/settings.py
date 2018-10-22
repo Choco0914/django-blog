@@ -186,7 +186,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
     # Only allow heroku to host the project.
     ALLOWED_HOSTS = ['choco-blog.herokuapp.com']
-    DEBUG = True
+    DEBUG = False
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -199,6 +199,6 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
-    EMAIL_HOST_PASSWORD = 'my password'
+    EMAIL_HOST_PASSWORD = ''453901gjwjdgh''
     SERVER_EMAIL = 'heojeongho1992@gmail.com'
     DEFAULT_FROM_MAIL = 'my_blog'
