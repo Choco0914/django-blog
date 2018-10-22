@@ -199,6 +199,6 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
-    EMAIL_HOST_PASSWORD = ''453901gjwjdgh''
+    EMAIL_HOST_PASSWORD = '453901gjwjdgh'
     SERVER_EMAIL = 'heojeongho1992@gmail.com'
     DEFAULT_FROM_MAIL = 'my_blog'
