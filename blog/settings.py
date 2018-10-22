@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y$a)3faq3*h#r0g5b^cxsw^lgdxbbu&#lsqek!_0ju+d*c!ups'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -127,8 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # 내 설정
 LOGIN_URL = '/users/login/'
@@ -171,3 +169,28 @@ EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('KBOARD_PASSWORD')
 SERVER_EMAIL = 'heojeongho1992@gmail.com'
 DEFAULT_FROM_MAIL = 'my_blog'
+
+# Heroku settings
+cwd = os.getcwd()
+print("--- CWD ---\n", cwd, "\n---\n")
+if cwd == '/app' or cwd[:4] == '/tmp':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Only allow heroku to host the project.
+    ALLOWED_HOSTS = ['*']
+    DEBUG = True
+
+    # Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
+
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
