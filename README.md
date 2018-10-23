@@ -6,12 +6,15 @@
 ## 개발 환경 설정
 
 <dl>
-  <dt>개발 환경 설정</dt>
-  <dd>Is something people use sometimes.</dd>
+  <dt>사용 언어, 프레임워크, 운영체제 </dt>
+  <dd>![PyPI - Django Version][django-image]
+![PyPI - Python Version][python-image]
+![PyPi - Ubuntu Version][ubuntu-image]</dd>
 
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
 </dl>
+
 ![PyPI - Django Version][django-image]
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
