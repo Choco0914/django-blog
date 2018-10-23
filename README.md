@@ -26,8 +26,11 @@
 
 [Blog](https://choco-blog.herokuapp.com/) 링크를 클릭하세요!
 
-### * Blog에서 할수 있는 것들-
-* Unordered sub-list. 
+### - Blog에서 할수 있는 것들 -
+
+* 공개글 혹은 비밀글 작성하기
+* 댓글 달기
+* 회원가입, 로그인(google, github, kakao 게정으로 로그인가능), 회원탈퇴하기
 
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
