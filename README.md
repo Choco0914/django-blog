@@ -5,7 +5,7 @@
 
 ## 개발 환경 설정
 
-#### 프레임워크, 주 언어 와 
+#### 프레임워크, 주 언어 와 운영체제
 ![PyPI - Django Version][django-image]
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
