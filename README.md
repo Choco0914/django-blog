@@ -14,9 +14,12 @@
  ![PyPI - Django-bootstrap3 Version][bootstrap-image]
  ![PyPI - django-filter Version][django_filter-image]
  ![PyPI - Django-widget-tweaks Version][django_widget_tweaks-image]
- ![PyPI - Python Version][bootstrap-image]
- ![PyPI - Python Version][bootstrap-image]
- ![PyPI - Python Version][bootstrap-image]
+ ![PyPI - Gunicorn Version][gunicorn-image]
+ ![PyPI - Psycopg2 Version][Psycopg2-image]
+ ![PyPI - Psycopg2-binary Version][Psycopg2-binary-image]
+ ![PyPI - Whitenoise Version][Whitenoise-image]
+ ![PyPI - Psycopg2 Version][Whitenoise-image]
+ ![PyPI - Psycopg2 Version][Whitenoise-image]
 
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
@@ -25,3 +28,7 @@
 [bootstrap-image]: https://img.shields.io/badge/bootstrap3-11.0-green.svg
 [django_filter-image]:https://img.shields.io/badge/django_filter-2.0-green.svg
 [django_widget_tweaks-image]: https://img.shields.io/badge/django_widget_tweaks-1.4-green.svg
+[gunicorn-image]: https://img.shields.io/badge/gunicorn-19.9-green.svg
+[Psycopg2-image]: https://img.shields.io/badge/psycopg2-2.7-green.svg
+[Psycopg2-binary-image]: https://img.shields.io/badge/psycopg2_binary-2.7-green.svg
+whitenoise
