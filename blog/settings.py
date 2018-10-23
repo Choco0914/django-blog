@@ -153,8 +153,8 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 LOGIN_REDIRECT_URL='/'
 
 # Google login
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='843562355161-3atsmmageh4j0758g4am6e4ncefckupf.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='ZVKObQDFPhTdz1GXWfaYuulq'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='133970349112-0johlndgj6ae0ju9d0beo6k0ub7dl63b.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET ='m8CbHfqnk6gMELAx8UVJEKaY'
 # Github Login
 SOCIAL_AUTH_GITHUB_KEY = 'e2fc4a9cf1f213b0a10f'
 SOCIAL_AUTH_GITHUB_SECRET = 'c4d1efe407175230a47d7fa547db0667b4f08721'
@@ -198,7 +198,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     EMAIL_USE_TLS = 'True'
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = 'heojeongho1992@gmail.com'
-    EMAIL_HOST_PASSWORD = '457701gjwjdgh'
+    EMAIL_HOST_USER = 'I.love.choco.0914@gmail.com'
+    EMAIL_HOST_PASSWORD = '453901choco'
     SERVER_EMAIL = 'heojeongho1992@gmail.com'
     DEFAULT_FROM_MAIL = 'my_blog'
