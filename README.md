@@ -5,16 +5,7 @@
 
 ## 개발 환경 설정
 
-<dl>
-  <dt>사용 언어, 프레임워크, 운영체제 </dt>
- ![PyPI - Django Version][django-image]
- ![PyPI - Python Version][python-image]
- ![PyPi - Ubuntu Version][ubuntu-image]
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
+#### 프레임워크, 주 언어 와 
 ![PyPI - Django Version][django-image]
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
