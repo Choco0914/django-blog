@@ -7,9 +7,9 @@
 
 <dl>
   <dt>사용 언어, 프레임워크, 운영체제 </dt>
-  <dd>![PyPI - Django Version][django-image]
-![PyPI - Python Version][python-image]
-![PyPi - Ubuntu Version][ubuntu-image]</dd>
+ ![PyPI - Django Version][django-image]
+ ![PyPI - Python Version][python-image]
+ ![PyPi - Ubuntu Version][ubuntu-image]
 
   <dt>Markdown in HTML</dt>
   <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
