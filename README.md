@@ -8,7 +8,7 @@
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
 
-### 
+### 설치된 패키지
 
 
 <!-- Markdown link & img dfn's -->
