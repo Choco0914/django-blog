@@ -12,7 +12,7 @@
 
 
 <!-- Markdown link & img dfn's -->
-[django-image]: https://img.shields.io/pypi/djversions/djangorestframework.svg
+[django-image]: https://img.shields.io/badge/django-2.1-blue.svg
 [django-url]: https://www.djangoproject.com/
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
