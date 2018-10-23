@@ -18,9 +18,11 @@
  ![PyPI - Psycopg2 Version][Psycopg2-image]
  ![PyPI - Psycopg2-binary Version][Psycopg2-binary-image]
  ![PyPI - Whitenoise Version][Whitenoise-image]
- ![PyPI - Psycopg2 Version][Whitenoise-image]
- ![PyPI - Psycopg2 Version][Whitenoise-image]
+ ![PyPI - Social-auth-app-django Version][social-auth-app-django-image]
+ ![PyPI - Social-auth-core Version][social-auth-core-image]
+ ![PyPI - Oauthlib Version][Oauthlib-image]
 
+oauthlib==2.1.0
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
 [python-image]: https://img.shields.io/badge/python-3.6-blue.svg
@@ -31,4 +33,8 @@
 [gunicorn-image]: https://img.shields.io/badge/gunicorn-19.9-green.svg
 [Psycopg2-image]: https://img.shields.io/badge/psycopg2-2.7-green.svg
 [Psycopg2-binary-image]: https://img.shields.io/badge/psycopg2_binary-2.7-green.svg
-whitenoise
+[Whitenoise-image]: https://img.shields.io/badge/whitenoise-4.1-green.svg
+[social-auth-app-django-image]: https://img.shields.io/badge/social_auth_app_django_image-2.1-green-svg
+[social-auth-core-image]: https://img.shields.io/badge/social_auth_core-1.7-green-svg
+[Oauthlib-image]: https://img.shields.io/badge/oauthlib-2.1-green.svg
+
