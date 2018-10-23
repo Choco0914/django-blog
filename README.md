@@ -4,8 +4,9 @@
 
 
 
-![PyPI - Django Version][django-image][django-url]
-[![Build Status][travis-image]][travis-url]
+![PyPI - Django Version][django-image]
+![PyPI - Python Version][python-image]
+
 [![Downloads Stats][npm-downloads]][npm-url]
 
 한 두 문단으로 프로젝트 소개 글을 작성합니다.
@@ -13,7 +14,4 @@
 
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
-[django-url]: https://www.djangoproject.com/
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-https://img.shields.io/badge/django-2.1-blue.svgstyle=flat-square
+[python-image]: https://img.shields.io/badge/python-3.6-blue.svg
