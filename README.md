@@ -37,7 +37,7 @@
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
 [python-image]: https://img.shields.io/badge/python-3.6-blue.svg
 [ubuntu-image]: https://img.shields.io/badge/ubuntu-18.04-orange.svg
-[postgresql-image]: https://img.shields.io/badge/postgresql-orange.svg
+[postgresql-image]: https://img.shields.io/badge/postgresql-on_heroku-orange.svg
 
 [bootstrap-image]: https://img.shields.io/badge/bootstrap3-11.0-green.svg
 [django_filter-image]:https://img.shields.io/badge/django_filter-2.0-green.svg
