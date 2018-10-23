@@ -8,7 +8,7 @@
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
 
-한 두 문단으로 프로젝트 소개 글을 작성합니다.
+### 
 
 
 <!-- Markdown link & img dfn's -->
