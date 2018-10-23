@@ -26,6 +26,9 @@
 
 [Blog](https://choco-blog.herokuapp.com/) 링크를 클릭하세요!
 
+### * Blog에서 할수 있는 것들-
+* Unordered sub-list. 
+
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
 [python-image]: https://img.shields.io/badge/python-3.6-blue.svg
