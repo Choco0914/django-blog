@@ -5,10 +5,11 @@
 
 ## 개발 환경 설정
 
-#### 프레임워크, 주 언어 와 운영체제
+#### 프레임워크, 주 사용언어, 운영체제 그리고 Database
 ![PyPI - Django Version][django-image]
 ![PyPI - Python Version][python-image]
 ![PyPi - Ubuntu Version][ubuntu-image]
+![PyPi - Postgresql Version][postgresql-image]
 
 #### 설치된 패키지
  ![PyPI - Django-bootstrap3 Version][bootstrap-image]
@@ -36,6 +37,8 @@
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
 [python-image]: https://img.shields.io/badge/python-3.6-blue.svg
 [ubuntu-image]: https://img.shields.io/badge/ubuntu-18.04-orange.svg
+[postgresql-image]: https://img.shields.io/badge/postgresql-orange.svg
+
 [bootstrap-image]: https://img.shields.io/badge/bootstrap3-11.0-green.svg
 [django_filter-image]:https://img.shields.io/badge/django_filter-2.0-green.svg
 [django_widget_tweaks-image]: https://img.shields.io/badge/django_widget_tweaks-1.4-green.svg
