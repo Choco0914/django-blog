@@ -24,7 +24,7 @@
 
 ## 사이트
 
-링크를 클릭하세요! [Blog](https://choco-blog.herokuapp.com/)
+[Blog](https://choco-blog.herokuapp.com/) 링크를 클릭하세요!
 
 <!-- Markdown link & img dfn's -->
 [django-image]: https://img.shields.io/badge/django-2.1-blue.svg
