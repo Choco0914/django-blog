@@ -34,7 +34,7 @@ oauthlib==2.1.0
 [Psycopg2-image]: https://img.shields.io/badge/psycopg2-2.7-green.svg
 [Psycopg2-binary-image]: https://img.shields.io/badge/psycopg2_binary-2.7-green.svg
 [Whitenoise-image]: https://img.shields.io/badge/whitenoise-4.1-green.svg
-[social_auth_app_django-image]: https://img.shields.io/badge/social_auth_app_django-2.1-green-svg
-[social_auth_core-image]: https://img.shields.io/badge/social_auth_core-1.7-green-svg
+[social_auth_app_django-image]: https://img.shields.io/badge/social_auth_app_django-2.1-green.svg
+[social_auth_core-image]: https://img.shields.io/badge/social_auth_core-1.7-green.svg
 [Oauthlib-image]: https://img.shields.io/badge/oauthlib-2.1-green.svg
 
